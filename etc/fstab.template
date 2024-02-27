@@ -1,0 +1,110 @@
+# *****************************************************************************
+# Host          : TEMPLATE
+# File          : /etc/fstab
+# Author        : ALX
+# Creation      : 2024-02-25
+# Last Revision : 2024-02-25
+# Description   : /etc/fstab
+# *****************************************************************************
+
+# Options
+# - auto     : file system will mount automatically at boot, or when the command 'mount -a' is issued
+#   noauto   : the filesystem is mounted only when you tell it to
+# - defaults : use default options (rw, suid, dev, exec, auto, nouser, and async)
+# - errors=remount-ro : when there is an error mounting the disk with read/write privileges, it will instead mount it as read only
+# - exec     : allow binaries to be executed on the filesystem (default)
+#   noexec   : do not allow binaries to be executed on the filesystem
+# - intr     : allows NFS requests to be interrupted if the server goes down or cannot be reached. Prevents data corruption
+# - noatime  : don't update access time (useful for ssd and nfs)
+# - nofail   : unavailable partition will not be mounted at boot and will not freeze boot
+# - nolock   : apps can lock files, but such locks provide exclusion only against other apps on the same client.  Remote applications are not affected by these locks
+# - rw       : mount with read and write permission
+# - ro       : mount with read only permission
+# - suid     : allow the operation of suid, and sgid bits. Used  to allow users to execute binaries with temporarily elevated privileges
+#   nosuid   : block the operation of suid, and sgid bits.
+# - sync     : synchronous input/output. All changes to the according filesystem are immediately flushed to disk
+#   async    : asynchronous input/output. Better for ssd
+# - tcp      : specifies the NFS mount to use the TCP protocol
+# - timeo=n  : defines the time (in tenths of a second) the NFS client waits for a response before it retries an NFS request
+# - users    : any user can mount (implies noexec,nosuid,nodev). Any user can unmount
+#   user     : any user can mount (implies noexec,nosuid,nodev). Only the user that mounted can unmount
+#   nouser   : only root can mount (default)
+# - x-systemd.device-timeout=n : how long (in seconds) systemd should wait for a device to show up before giving up
+# - x-systemd.requires=nework-online.target : run the automount after the network is online
+# - x-systemd.automount : delegate this mount to systemd
+# - x-systemd.idle-timeout=60s: Configures an idle timeout. Once the mount has been idle for the specified time, systemd will attempt to unmount.
+#             So after 60 seconds of non-use of the mount point, it will be umounted
+# - _netdev  : prevent the system from attempting to mount these filesystems until the network has been enabled
+# - retrans=2: 2 retransmissions if failure
+# - timeo=5 : 500ms timeout
+# Columns
+# - dump : used by the dump command to determine which filesystems need to be dumped
+# - pass : used by the fsck program to determine the order in which filesystem checks are done at reboot time (0=not checked, 1=root filesystem, 2=other filesystems)
+
+# **************************************** THIS COMPUTER ************************************************************************************************************************
+# <file system>					<mount point>			<type>	<options>			                                           <dump>  <pass>
+
+# **************************************** COMMON *******************************************************************************************************************************
+# <file system>					<mount point>			<type>	<options>			                                           <dump>  <pass>
+
+# SD Card
+UUID=7daa920d-1082-4e0d-be5f-99ff1a5647a5	/media/sd-lynx			auto	users,rw,noauto,nofail,exec							0	2
+#UUID=c14cba14-bac3-4faa-b83a-57bed4e686ca	/media/sd-sec			auto	users,rw,noauto,nofail,exec							0	2
+UUID=6276a955-c8e3-4f7a-9391-e7a879025617	/media/sd-sec			auto	users,rw,noauto,nofail,exec							0	2
+
+UUID=57291f93-cf73-439c-b867-e2715f2f4976	/media/sd-secd			auto	users,rw,noauto,nofail,exec							0	2
+UUID=6d669a4e-9424-4923-8f6f-c3e128fa89e1	/media/sd-yt			auto	users,rw,noauto,nofail,exec							0	2
+# UUID=4DC1-D7B2				/media/sd-mitochondria		auto	users,rw,noauto,nofail,exec							0	2
+UUID=14FD-DAD7					/media/sd-hyenidae		auto	users,rw,noauto,nofail,exec							0	2
+UUID=3766-6333					/media/sd-suricata		auto	users,rw,noauto,nofail,exec							0	2
+UUID=3162-6261					/media/sd-terminator		auto	users,rw,noauto,nofail,exec							0	2
+
+
+#USB HDD
+UUID=8138739f-1118-4252-8180-79ef326a1a25	/media/hdd-diceros		auto	users,rw,noauto,nofail,exec							0	2
+UUID=96a6bcc9-e26e-43cf-a8e1-0d92b8ae10ad	/media/hdd-cyanobacteria	auto	users,rw,noauto,nofail,exec							0	2
+UUID=e22e306d-6072-419e-bcd9-5a884ebf56f7	/media/hdd-actinobacteria	auto	users,rw,noauto,nofail,exec							0	2
+UUID=2acd6053-309b-4e72-9c43-6afda0ea49d3	/media/hdd-clostridium		auto	users,rw,noauto,nofail,exec							0	2
+UUID=d0f97276-4104-4fff-915f-be25f4aa6021	/media/hdd-filoviridae		auto	users,rw,noauto,nofail,exec							0	2
+UUID=8d9075f2-6646-456d-ae56-fbfcdb3d0ed8	/media/hdd-formicidae		auto	users,rw,noauto,nofail,exec							0	2
+UUID=7527c5c1-cb32-4dea-8dc3-088087d90a76	/media/hdd-tarsius		auto	users,rw,noauto,nofail,exec							0	2
+UUID=6a3d1514-17e8-427f-a68b-649cf7380ef8	/media/hdd-ardea		auto	users,rw,noauto,nofail,exec							0	2
+UUID=0b90f3f8-227f-4bef-babc-0709648ee58e	/media/hdd-equus		auto	users,rw,noauto,nofail,exec							0	2
+UUID=8aeb659a-ab15-4065-8a24-a5c829f6f90a	/media/hdd-diplodocus		auto	users,rw,noauto,nofail,exec							0	2
+UUID=5f56262b-eb46-4e2c-87b1-d01e44fbe65b	/media/hdd-boiron		auto	users,rw,noauto,nofail,exec							0	2
+UUID=42f352cd-7a8f-4bfb-9bb6-dc29e90438ad	/media/hdd-incirrina		auto	users,rw,noauto,nofail,exec							0	2
+
+#USB Keys (FAT)
+UUID=75E7-6954					/media/alx-w			auto	users,rw,noauto,nofail,exec,uid=alexandra,gid=eukarya				0	2
+UUID=F721-EE62					/media/usb-fat			auto	users,rw,noauto,nofail,exec,uid=alexandra,gid=eukarya				0	2
+
+UUID=c4850749-3bf6-4353-aeec-8a2602710876	/media/alx-docs			auto	users,rw,noauto,nofail,exec							0	2
+UUID=8eca82c9-69ef-4b32-8619-5b87df99cb0f	/media/alx-rech			auto	users,rw,noauto,nofail,exec							0	2
+UUID=9055-2CA6					/media/alx-vids			auto	users,rw,noauto,nofail,exec							0	2
+UUID=2257-5749					/media/usb-share		auto	users,rw,noauto,nofail,exec							0	2
+UUID=93878e32-a28e-4f51-8088-f284489ee362	/media/usb-helloworld		auto	users,rw,noauto,nofail,exec							0	2
+UUID=ee576b04-af69-4268-be8e-4d199edba3d9	/media/usb-sec			auto	users,rw,noauto,nofail,exec							0	2
+UUID=900304d3-56fe-47d5-89bf-9f3d8fd2e9d0	/media/usb-os			auto	users,rw,noauto,nofail,exec							0	2
+UUID=3fab1dbe-b5e0-4ab4-a25f-5d89bb1db45d	/media/usb-config		auto	users,rw,noauto,nofail,exec							0	2
+UUID=06B7-3EFD					/media/lrh-docs			auto	users,rw,noauto,nofail,exec							0	2
+UUID=00b5099a-f512-4e8f-bba0-81cba6633c52	/media/lrh-robot		auto	users,rw,noauto,nofail,exec							0	2
+
+# NFS
+# - tcp : TCP is the preferred protocol when connecting to an NFS server
+# - timeo=30 : timeout value of 3 seconds
+# - async : asynchronous input/output. Better for ssd
+10.0.2.1:/mnt/hdd-rattus			/mnt/nfs-rattus		nfs users,rw,auto,_netdev,noatime,nofail,nolock,tcp,exec,intr,nofail,soft,retrans=2,timeo=5		0	0
+
+#colibri:/mnt/nfs/nfs-home			/mnt/colibri		nfs	users,rw,noauto,exec,nofail,x-systemd.device-timeout=2,x-systemd.requires=nework-online.target	0	2
+#colibri:/media/hdd-cyanobacteria		/mnt/hdd-cyanobacteria	nfs	users,rw,noauto,noatime,nofail,nolock,tcp,exec,intr						0	2
+#colibri:/media/hdd-filoviridae			/mnt/hdd-filoviridae	nfs	users,rw,noauto,noatime,nofail,nolock,tcp,exec,intr						0	2
+#felis:/volume1/music.s				/mnt/music			nfs	users,rw,noauto,noatime,nofail,nolock,tcp,exec,intr					0	2
+#felis:/volume1/music.s				/mnt/music			nfs	users,rw,auto,exec,nofail,x-systemd.device-timeout=2,x-systemd.requires=nework-online.target	0 2
+#felis:/volume1/broadcast			/mnt/broadcast		nfs	users,rw,noauto,noatime,nofail,nolock,tcp,exec,intr						0	2
+#scarabaeidae:/var/lib/motioneye			/mnt/motioneye			nfs	users,rw,noauto,noatime,nofail,nolock,tcp,exec,intr				0	2
+
+# WebDAV
+https://webdav.mailo.com:443/ /mnt/davalx davfs rw,user,noauto 0 0
+
+# CIFS (Windows share)
+# //hymenoptera/SD                                /mnt/hymenoptera		cifs	users,rw,noauto,nofail,workgroup=eukarya,credentials=/root/.credentials-lambda			0 2
